@@ -14,7 +14,7 @@ var pascal_triangle = (function(getRows){
 			return (function(rows){
 
 				var i = (triangle.length);
-				var started = i + 1;
+				var started = i;
 			
 				//start at the end of the triangle
 				for (i; i < (rows - 1); i++) {
