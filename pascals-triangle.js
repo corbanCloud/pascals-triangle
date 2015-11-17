@@ -1,7 +1,7 @@
 var pascal_triangle = (function(getRows){
 
 	//define the first row
-	var triangle = [[1], [1,1]];
+	var triangle = [[1]];
 
 	return function(getRows){
 
@@ -13,8 +13,11 @@ var pascal_triangle = (function(getRows){
 
 			return (function(rows){
 
+				var i = (triangle.length);
+				var started = i + 1;
+			
 				//start at the end of the triangle
-				for (var i = (triangle.length - 1); i < (rows - 1); i++) {
+				for (i; i < (rows - 1); i++) {
 					
 					var row         	= [1],
 						previousRow     = triangle[(triangle.length - 1)],
@@ -40,14 +43,14 @@ var pascal_triangle = (function(getRows){
 					row.push(1);
 
 					triangle.push(row);
+
 				}
-		
+
+				console.log("Starting at row " + started + ", calculated " + (i - started) + " new rows");
+				
 				return triangle;
 
 			}).call({}, getRows);
 		}
 	}
 })();
-
-//Module export, if you're into that kind of thing.
-//module.exports = pascals_triangle;
